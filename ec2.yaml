@@ -1,15 +1,13 @@
-AWSTemplateFormatVersion: 2010-09-09
-Resources:
-  MyEc2Instance:
-    Type: AWS::EC2::Instance
-    DependsOn: MySecurityGroup
-    Properties:
-      ImageId: "" # Enter Image ID 
-      InstanceType: "" # Enter Instance Type
-      SubnetId: ""  # Enter Subnet ID
-      KeyName: "" # Enter SSH Key Name
+AWSTemplateFormatVersion: 2010-09-09  # Required field - Indicates it's cloudformation template
+Resources:                            # Required field 
+  MyEc2Instance:                      # Required field - Logical Name or Logical ID - Unique Name for the resources 
+    Type: AWS::EC2::Instance          # Required field - Indicates what resource you want to create
+    Properties:                       # Required field - Configuration for your resource
       Tags:
-      - Key: "Name"
-        Value: "MyEC2Instance"
-      - Key: "Purpose"
-        Value: "aws-class"
+        - Key: Name
+          Value: aws-session-instance-cloudformation
+      ImageId: ami-05572e392e80aee89
+      InstanceType: t2.micro
+      KeyName: MyMacKey
+      
+# MyEc2Instance = Camel Case (The first letter is Capital)
