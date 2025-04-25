@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  MyEc2Instance:
+    Type: AWS::EC2::Instance
+    DependsOn: MySecurityGroup
+    Properties:
+      ImageId: "" # Enter Image ID 
+      InstanceType: "" # Enter Instance Type
+      SubnetId: ""  # Enter Subnet ID
+      KeyName: "" # Enter SSH Key Name
+      Tags:
+      - Key: "Name"
+        Value: "MyEC2Instance"
+      - Key: "Purpose"
+        Value: "aws-class"
